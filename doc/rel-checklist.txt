@@ -1,0 +1,42 @@
+
+Release task list
+=================
+
+If this is a new major or minor release (not a bug-fix release), make a new
+branch for the M.N.x bug-fix releases: 
+	cvs tag vmips-M_N-branch-base
+	cvs tag -b vmips-M_N-branch
+
+Update debian/changelog, configure.in, and VERSION with new version number.
+
+Update the "Release History" section of vmips.texi with user-visible
+differences in this release, then regenerate NEWS and INSTALL using
+the makeINSTALL script.
+
+Update ANNOUNCE with the new version number and the right paragraph from NEWS
+
+Update ChangeLog using
+	sh ./utils/do-cvs2cl
+
+Compile vmips and run the testsuite
+	./utils/bootstrap -m --with-mips=/opt/mipsel-ecoff --target=mipsel-ecoff
+	gmake check
+
+Build tarball using
+	./utils/bootstrap -t --with-mips=/opt/mipsel-ecoff --target=mipsel-ecoff
+
+Build RPM and SRPM
+
+Upload tarball, RPM, SRPM, and ANNOUNCE to web site
+
+Add news item to web page
+
+Release on SourceForge
+    Upload tarball, rpm, srpm to upload.sourceforge.net/incoming
+    Add News item to summary page with short paragraph describing release
+
+Send ANNOUNCE as e-mail to mailing list
+
+Announce release on Freshmeat.net
+    Use the same short paragraph as SF.net news item
+

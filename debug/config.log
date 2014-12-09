@@ -1,0 +1,193 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:586: checking host system type
+configure:607: checking target system type
+configure:625: checking build system type
+configure:660: checking for a BSD compatible install
+configure:713: checking whether build environment is sane
+configure:770: checking whether make sets ${MAKE}
+configure:816: checking for working aclocal
+configure:829: checking for working autoconf
+configure:842: checking for working automake
+configure:855: checking for working autoheader
+configure:868: checking for working makeinfo
+configure:909: checking for gcc
+configure:1022: checking whether the C compiler (gcc  ) works
+configure:1038: gcc -o conftest    conftest.c  1>&5
+configure:1064: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:1069: checking whether we are using GNU C
+configure:1078: gcc -E conftest.c
+configure:1097: checking whether gcc accepts -g
+configure:1130: checking how to run the C preprocessor
+configure:1151: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1210: checking for AIX
+configure:1234: checking for POSIXized ISC
+configure:1256: checking for minix/config.h
+configure:1266: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1262:26: error: minix/config.h: No such file or directory
+configure: failed program was:
+#line 1261 "configure"
+#include "confdefs.h"
+#include <minix/config.h>
+configure:1305: checking for Cygwin environment
+configure:1321: gcc -c -g -O2  conftest.c 1>&5
+configure: In function 'main':
+configure:1317: error: '__CYGWIN32__' undeclared (first use in this function)
+configure:1317: error: (Each undeclared identifier is reported only once
+configure:1317: error: for each function it appears in.)
+configure: failed program was:
+#line 1310 "configure"
+#include "confdefs.h"
+
+int main() {
+
+#ifndef __CYGWIN__
+#define __CYGWIN__ __CYGWIN32__
+#endif
+return __CYGWIN__;
+; return 0; }
+configure:1338: checking for mingw32 environment
+configure:1350: gcc -c -g -O2  conftest.c 1>&5
+configure: In function 'main':
+configure:1346: error: '__MINGW32__' undeclared (first use in this function)
+configure:1346: error: (Each undeclared identifier is reported only once
+configure:1346: error: for each function it appears in.)
+configure: failed program was:
+#line 1343 "configure"
+#include "confdefs.h"
+
+int main() {
+return __MINGW32__;
+; return 0; }
+configure:1369: checking for executable suffix
+configure:1379: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1401: checking for mips tool prefix
+configure:1429: checking for cross tools target endianness
+configure:1466: checking whether to build an optimized or a debugging version
+configure:1508: checking whether to build a profiled version
+configure:1537: checking for mawk
+configure:1571: checking for c++
+configure:1603: checking whether the C++ compiler (c++ -O0 -g3  -s) works
+configure:1619: c++ -o conftest -O0 -g3   -s conftest.C  1>&5
+configure:1645: checking whether the C++ compiler (c++ -O0 -g3  -s) is a cross-compiler
+configure:1650: checking whether we are using GNU C++
+configure:1659: c++ -E conftest.C
+configure:1678: checking whether c++ accepts -g
+configure:1715: checking whether you can pass a template function to a function whose return type is the same as the type of its parameter
+configure:1738: c++ -c -O0 -g3 -Wall -fno-strict-aliasing  conftest.C 1>&5
+configure: In function 'F x(F) [with F = void (*)(int)]':
+configure:1729: warning: control reaches end of non-void function
+configure:1762: checking how to run the C preprocessor
+configure:1888: checking for ranlib
+configure:1927: checking for a BSD compatible install
+configure:1980: checking whether ln -s works
+configure:2001: checking whether make sets ${MAKE}
+configure:2029: checking whether gcc needs -traditional
+configure:2077: checking for ANSI C header files
+configure:2090: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2160: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure: In function 'main':
+configure:2155: warning: implicit declaration of function 'exit'
+configure:2155: warning: incompatible implicit declaration of built-in function 'exit'
+configure:2187: checking for fcntl.h
+configure:2197: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2187: checking for limits.h
+configure:2197: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2187: checking for sys/ioctl.h
+configure:2197: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2187: checking for sys/time.h
+configure:2197: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2187: checking for unistd.h
+configure:2197: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2225: checking for working const
+configure:2279: gcc -c -g -O2 -Wall -fno-strict-aliasing  conftest.c 1>&5
+configure: In function 'main':
+configure:2253: warning: unused variable 's'
+configure:2273: warning: unused variable 'foo'
+configure:2241: warning: unused variable 'zero'
+configure:2235: warning: unused variable 'x'
+configure:2255: warning: 't' is used uninitialized in this function
+configure:2270: warning: 'b' is used uninitialized in this function
+configure:2300: checking for inline
+configure:2314: gcc -c -g -O2 -Wall -fno-strict-aliasing  conftest.c 1>&5
+configure:2310: warning: return type defaults to 'int'
+configure: In function 'main':
+configure:2310: warning: control reaches end of non-void function
+configure:2340: checking for off_t
+configure:2373: checking for pid_t
+configure:2406: checking for size_t
+configure:2439: checking whether time.h and sys/time.h may both be included
+configure:2453: gcc -c -g -O2 -Wall -fno-strict-aliasing  conftest.c 1>&5
+configure: In function 'main':
+configure:2449: warning: unused variable 'tp'
+configure:2474: checking for socklen_t
+configure:2488: gcc -c -g -O2 -Wall -fno-strict-aliasing  conftest.c 1>&5
+configure:2509: checking whether specifying that a function will never return works
+configure:2532: c++ -c -Werror -O0 -g3 -Wall -fno-strict-aliasing  conftest.C 1>&5
+configure:2562: checking whether specifying that a function takes printf-style arguments works
+configure:2586: c++ -c -Werror -O0 -g3 -Wall -fno-strict-aliasing  conftest.C 1>&5
+configure:2617: checking size of long long
+configure:2639: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:2631: warning: return type defaults to 'int'
+configure: In function 'main':
+configure:2633: warning: implicit declaration of function 'exit'
+configure:2633: warning: incompatible implicit declaration of built-in function 'exit'
+configure:2659: checking size of long
+configure:2681: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:2673: warning: return type defaults to 'int'
+configure: In function 'main':
+configure:2675: warning: implicit declaration of function 'exit'
+configure:2675: warning: incompatible implicit declaration of built-in function 'exit'
+configure:2701: checking size of int
+configure:2723: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:2715: warning: return type defaults to 'int'
+configure: In function 'main':
+configure:2717: warning: implicit declaration of function 'exit'
+configure:2717: warning: incompatible implicit declaration of built-in function 'exit'
+configure:2743: checking size of short
+configure:2765: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:2757: warning: return type defaults to 'int'
+configure: In function 'main':
+configure:2759: warning: implicit declaration of function 'exit'
+configure:2759: warning: incompatible implicit declaration of built-in function 'exit'
+configure:2785: checking size of char
+configure:2807: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:2799: warning: return type defaults to 'int'
+configure: In function 'main':
+configure:2801: warning: implicit declaration of function 'exit'
+configure:2801: warning: incompatible implicit declaration of built-in function 'exit'
+configure:2831: checking for unistd.h
+configure:2870: checking for getpagesize
+configure:2901: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:2926: checking for working mmap
+configure:3077: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:3008: warning: conflicting types for built-in function 'malloc'
+configure: In function 'main':
+configure:3018: warning: implicit declaration of function 'getpagesize'
+configure:3025: warning: implicit declaration of function 'exit'
+configure:3025: warning: incompatible implicit declaration of built-in function 'exit'
+configure:3027: warning: implicit declaration of function 'rand'
+configure:3028: warning: implicit declaration of function 'umask'
+configure:3032: warning: implicit declaration of function 'write'
+configure:3034: warning: implicit declaration of function 'close'
+configure:3065: warning: implicit declaration of function 'read'
+configure:3071: warning: implicit declaration of function 'unlink'
+configure:3100: checking for vprintf
+configure:3131: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:3115: warning: conflicting types for built-in function 'vprintf'
+configure:3213: checking for gettimeofday
+configure:3244: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:3213: checking for strdup
+configure:3244: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:3228: warning: conflicting types for built-in function 'strdup'
+configure:3213: checking for strerror
+configure:3244: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:3213: checking for random
+configure:3244: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:3213: checking for select
+configure:3244: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:3270: checking for library containing socket
+configure:3288: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5
+configure:3332: checking for library containing inet_ntoa
+configure:3350: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   -s conftest.c  1>&5

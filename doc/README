@@ -1,0 +1,68 @@
+VMIPS hacking guide
+
+CONTENTS:
+        Things to do for the next release
+
+
+Things to do for the next release
+=================================
+
+Fix the bugs in the DECstation-compatible serial emulation, and make a
+MIPS Linux demo ROM.
+
+Note: because we don't implement isolated or swapped caches, the NetBSD/pmax
+kernel goes into an infinite loop in r3k_size_caches().
+
+Clean out the sample_code directory. The setup code should probably be moved
+into the test_code directory.
+
+Separate old xmodem stuff out from xmboot and rename it to be
+decboot.
+
+Modify the CPU<->coprocessor interface. We shouldn't have to do any
+unnecessary instruction parsing in the coprocessor code.
+ * This means exposing interfaces that correspond
+   to the standard coprocessor interface instructions:
+   lwcZ/swcZ/mfcZ/mtcZ/cfcZ/ctcZ/bcZf/bcZt, and any of the ones I've
+   left out.
+   + bcZf/bcZt can be further simplified by only exposing the CpCond bit,
+     as is done in real MIPS designs.
+ * Any instructions that really are specific to the coprocessor can have
+   their parsing handled in the coprocessor, but we should handle these
+   special cases in the CPU core.
+ * Also, we can make these methods part of a new Coprocessor interface
+   class, and have a sane way of attaching cpzero as well as an fpu. Then
+   the special case handling of the no-fpu case in cpone_emulate() can go
+   away, by means of a minimal "nofpu" fpu implementation.
+
+Build a better debugger interface, especially for exception handling reasons.
+ * We want to be able to make vmips stop without throwing an exception
+   or having had a breakpoint set beforehand, so that the debugger can
+   inspect vmips's state at random points.
+   + Prototyped a solution where vmips catching SIGINT causes a return
+     to the debugger by making believe that we caught a SIGTRAP. This
+     seems to work OK but seems way clumsy.
+ * We want to be able to see exceptions happen in the debugger: both
+   before and after the jump to the exception handler.
+   + Currently when the program takes an exception, the debugger shows
+     you the exception handler, with no clue as to why you got there;
+     GDB doesn't let you see EPC, and since taking an exception craps on
+     the real PC, backtraces don't give you enough information to see what
+     caused the exception.
+   + This has the real possibility of being a place where we might want to
+     do something differently than the way the real hardware does it. For
+     instance, it's useful to be able to step through an exception handler,
+     as if it were a magical jump instruction, even though it might not
+     physically be possible on real hardware.
+ * Also, GDB just basically doesn't understand exceptions, which makes it
+   hard to tell what is really going on, because the exception-to-signal
+   mapping is not one-to-one. Using "-o excmsg" can help, but it's hardly
+   a clean solution.
+   + We might want to look at the possibility of implementing a
+     VMIPS-specific remote target, if it wouldn't incur too much of a
+     maintainability burden.
+ * GDB can't tell the difference between an interrupt (e.g. the timer
+   going off) and an exception (e.g., a bus error); consequently,
+   running any more than a small amount of code with interrupts on and
+   the debugger attached is tiresome because you have to tell GDB to
+   "continue" all the time.

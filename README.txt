@@ -1,0 +1,3 @@
+在模拟器中将提交的 数据全部都invalide， 而且提供了对堆的加锁和解锁。
+在speculativelogic.cc文件中添加 了m_CPU记录当前的runner，从而解决runner之前的撤销问题，在MMLoad中将runner作为异常的处理device，而不是this。
+为了防止在pslice中的异常破坏确定执行的线程的栈顶，当一个线程在发生异常时，不再将其重启。
